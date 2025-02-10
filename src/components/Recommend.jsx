@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 
 const Recommend = () => {
   const [cocktails, setCocktails] = useState([]);
@@ -14,7 +16,7 @@ const Recommend = () => {
       })
       .then((data) => {
         const cocktailsArray = Object.values(data);
-        const limitedCocktails = cocktailsArray.slice(0,4);
+        const limitedCocktails = cocktailsArray.slice(0,8);
         setCocktails(limitedCocktails);
         setLoading(false);
       })
@@ -24,6 +26,8 @@ const Recommend = () => {
       });
 
   }, []);
+
+
 
   if (loading) {
     return <div>데이터 로딩 중...</div>;
@@ -37,6 +41,7 @@ const Recommend = () => {
       <div className="RCM">
         {cocktails.map((cocktail, index) => {
           return (
+            <Link >
             <div key={index} className="card">
               <div className="img-container">
                 <img
@@ -48,6 +53,7 @@ const Recommend = () => {
               <h2>{cocktail.Name} ({cocktail.EnglishName})</h2>
               <p><strong>설명:</strong> {cocktail.Description}</p>
             </div>
+            </Link>
           );
         })}
       </div>

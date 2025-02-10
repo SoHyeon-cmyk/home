@@ -8,7 +8,7 @@ import { FaPause, FaAngleLeft, FaAngleRight,FaPlay } from "react-icons/fa6";
 const Mainslide = () => {
   const [images, setImages] = useState([]);
   const [isPlaying, setIsPlaying] = useState(true);
-  const swiperRef = useRef(null); // Swiper 인스턴스 참조
+  const swiperRef = useRef(null); 
 
   useEffect(() => {
     fetch("/data/image.json")
@@ -43,12 +43,12 @@ const Mainslide = () => {
           clickable: true,
           dynamicBullets: true,
         }}
-        loop={true}
         navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          nextEl: '.swiper-button-next1',
+          prevEl: '.swiper-button-prev2',
           clickable: true,
         }}
+        loop={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
@@ -63,7 +63,7 @@ const Mainslide = () => {
         <div className="control">
           <span
             onClick={() => swiperRef.current?.slidePrev()}
-            className="swiper-button-prev"><FaAngleLeft />
+            className="swiper-button-prev1"><FaAngleLeft />
           </span>
           <span 
             onClick={toggleAutoplay} 
@@ -71,7 +71,7 @@ const Mainslide = () => {
             {isPlaying ? <FaPause /> : <FaPlay className='play' />}
           </span>
           <span onClick={() => swiperRef.current?.slideNext()}
-          className="swiper-button-next"><FaAngleRight />
+          className="swiper-button-next2"><FaAngleRight />
           </span>
         </div>
       </div>
