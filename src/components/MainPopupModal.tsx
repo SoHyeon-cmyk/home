@@ -3,7 +3,6 @@ import { Modal } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Paper from '@mui/material/Paper';
 import dayjs from 'dayjs';
-import { FaCheck } from "react-icons/fa6";
 
 export default function MainPopupModal() {
   const [isModalOpen, setIsModalOpen] = useState(false);
